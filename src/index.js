@@ -1,7 +1,7 @@
-// console.log('123');
+import Keys from "./Keys";
+import * as lang from "./language"
+import {createKeyboard} from "./createDom"
 
-for (let i = 0; i < 4; i = +1) {
-//   console.log(i);
-}
-
-/// 123123123
+console.log(Keys)
+console.log(lang.EN)
+createKeyboard()

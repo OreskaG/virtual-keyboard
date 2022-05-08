@@ -1,4 +1,5 @@
 import Keys from "./Keys";
+import {currentLanguage} from "./language";
 
 function createKeyboard() {
     let wrapper = document.createElement('div');
@@ -28,6 +29,7 @@ function createKeyboard() {
             let elem = document.createElement('div');
             elem.id = Keys[i].id;
             elem.classList.add('btn');
+            elem.innerHTML = `${Keys[i].lang[currentLanguage]}`
             row.append(elem);
         }
     };
@@ -36,6 +38,8 @@ function createKeyboard() {
     appendBtnInRow(29, 42, row3);
     appendBtnInRow(42, 55, row4);
     appendBtnInRow(55, 64, row5);
+    let space = document.getElementById('Space');
+    space.innerHTML = '';
     let footerText1 = document.createElement('p');
     footerText1.classList.add('footer-text');
     footerText1.innerHTML = "Клавиатура создана в операционной системе Windows";

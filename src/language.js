@@ -3,4 +3,10 @@ const ENup = 1;
 const RU = 2;
 const RUup = 3;
 
-export {EN , ENup, RU, RUup};
+let currentLanguage = localStorage.getItem('lang');
+
+if ( currentLanguage == undefined ) {
+    currentLanguage = EN;
+};
+
+export {currentLanguage};

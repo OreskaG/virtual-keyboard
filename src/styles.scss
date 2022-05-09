@@ -87,3 +87,9 @@
     gap: 10px;
     justify-content: space-between
 }
+
+.active {
+    background-color: aquamarine;
+    color: black;
+    transition: 0.8s;
+}

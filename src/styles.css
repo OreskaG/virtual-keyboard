@@ -110,4 +110,11 @@
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
+
+.active {
+  background-color: aquamarine;
+  color: black;
+  -webkit-transition: 0.8s;
+  transition: 0.8s;
+}
 /*# sourceMappingURL=styles.css.map */

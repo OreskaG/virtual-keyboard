@@ -1,5 +1,5 @@
 import Keys from "./Keys";
-import {currentLanguage} from "./language";
+import {currentLanguage} from "./index"
 
 function createKeyboard() {
     let wrapper = document.createElement('div');

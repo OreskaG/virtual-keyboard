@@ -1,0 +1,120 @@
+.wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.title-text {
+  font-size: 30px;
+  text-align: center;
+}
+
+.text-area {
+  font-size: 20px;
+  margin: 20px auto;
+  resize: none;
+  outline: -webkit-focus-ring-color auto 1px;
+}
+
+.footer-text {
+  font-size: 20px;
+  margin: 10px auto;
+}
+
+.keyboard {
+  background-color: gray;
+  width: 800px;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.btn {
+  width: 40px;
+  height: 40px;
+  background-color: black;
+  border-radius: 5px;
+  color: white;
+  font-size: 17px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-weight: bold;
+  cursor: pointer;
+  -webkit-transition: 0.8s;
+  transition: 0.8s;
+}
+
+.btn:hover {
+  background-color: aquamarine;
+  color: black;
+  -webkit-transition: 0.8s;
+  transition: 0.8s;
+}
+
+#Backspace {
+  width: 90px;
+}
+
+#CapsLock {
+  width: 90px;
+}
+
+#Enter {
+  width: 120px;
+}
+
+#ShiftLeft {
+  width: 120px;
+}
+
+#ShiftRight {
+  width: 87px;
+}
+
+#Space {
+  width: 400px;
+}
+
+#Tab {
+  width: 70px;
+}
+
+.row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 10px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.active {
+  background-color: aquamarine;
+  color: black;
+  -webkit-transition: 0.8s;
+  transition: 0.8s;
+}
+/*# sourceMappingURL=styles.css.map */

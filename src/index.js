@@ -59,8 +59,8 @@ function checkLang() {
 }
 
 function pressShift(event) {
-  if (event.target.id === 'ShiftLeft') { event.target.classList.add('active'); }
-  if (event.target.id === 'ShiftRight') { event.target.classList.add('active'); }
+  if (event.target.id === 'ShiftLeft') { event.target.classList.toggle('active'); }
+  if (event.target.id === 'ShiftRight') { event.target.classList.toggle('active'); }
   let lang;
   if (currentLanguage === 0) { lang = 1; }
   if (currentLanguage === 1) { lang = 0; }
@@ -157,8 +157,8 @@ document.addEventListener('keydown', (event) => {
     return;
   }
   if (event.code === 'ShiftLeft' || event.code === 'ShiftRight') {
-    if (event.code === 'ShiftLeft') { document.getElementById('ShiftLeft').classList.add('active'); }
-    if (event.code === 'ShiftRight') { document.getElementById('ShiftRight').classList.add('active'); }
+    if (event.code === 'ShiftLeft') { document.getElementById('ShiftLeft').classList.toggle('active'); }
+    if (event.code === 'ShiftRight') { document.getElementById('ShiftRight').classList.toggle('active'); }
     let lang;
     if (currentLanguage === 0) { lang = 1; }
     if (currentLanguage === 1) { lang = 0; }

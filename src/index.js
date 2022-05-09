@@ -61,6 +61,16 @@ function checkLang() {
 }
 
 function pressShift(event) {
+  if ((event.target.id === 'ShiftLeft') && (document.getElementById('ShiftRight').classList[1] === 'active')) {
+    document.getElementById('ShiftRight').classList.remove('active');
+    document.getElementById('ShiftLeft').classList.add('active');
+    return;
+  }
+  if ((event.target.id === 'ShiftRight') && (document.getElementById('ShiftLeft').classList[1] === 'active')) {
+    document.getElementById('ShiftRight').classList.add('active');
+    document.getElementById('ShiftLeft').classList.remove('active');
+    return;
+  }
   if (event.target.id === 'ShiftLeft') { event.target.classList.toggle('active'); }
   if (event.target.id === 'ShiftRight') { event.target.classList.toggle('active'); }
   let lang;
@@ -159,6 +169,16 @@ document.addEventListener('keydown', (event) => {
     return;
   }
   if (event.code === 'ShiftLeft' || event.code === 'ShiftRight') {
+    if ((event.code === 'ShiftLeft') && (document.getElementById('ShiftRight').classList[1] === 'active')) {
+      document.getElementById('ShiftRight').classList.remove('active');
+      document.getElementById('ShiftLeft').classList.add('active');
+      return;
+    }
+    if ((event.code === 'ShiftRight') && (document.getElementById('ShiftLeft').classList[1] === 'active')) {
+      document.getElementById('ShiftRight').classList.add('active');
+      document.getElementById('ShiftLeft').classList.remove('active');
+      return;
+    }
     if (event.code === 'ShiftLeft') { document.getElementById('ShiftLeft').classList.toggle('active'); }
     if (event.code === 'ShiftRight') { document.getElementById('ShiftRight').classList.toggle('active'); }
     let lang;

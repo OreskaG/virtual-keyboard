@@ -12,6 +12,8 @@ if (currentLanguage === 3) {
   currentLanguage = 2;
 }
 
+createKeyboard();
+
 function checkChangeLang() {
   if (document.getElementById('AltLeft').classList[1] === 'active' || document.getElementById('AltRight').classList[1] === 'active' || document.getElementById('ControlRight').classList[1] === 'active' || document.getElementById('ControlLeft').classList[1] === 'active') {
     setTimeout(() => {
@@ -233,8 +235,6 @@ document.addEventListener('keydown', (event) => {
     document.getElementById(`${event.code}`).classList.remove('active');
   }, '500');
 });
-
-createKeyboard();
 
 const Keyboard = document.querySelector('.keyboard');
 function keyboardClick(event) {

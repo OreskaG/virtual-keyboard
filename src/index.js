@@ -100,6 +100,20 @@ document.addEventListener('keydown', (event) => {
   event.preventDefault();
   const textArea = document.querySelector('.text-area');
   if (event.code === 'Tab') {
+    const str = textArea.selectionStart;
+    const len = textArea.value.length;
+    const str1 = textArea.selectionEnd;
+    if (textArea.selectionStart !== len) {
+      textArea.value = `${textArea.value.substring(0, str)}    ${textArea.value.substring(str1, len)}`;
+      textArea.selectionStart = str + 4;
+      textArea.selectionEnd = str + 4;
+      textArea.focus();
+      document.getElementById('Tab').classList.add('active');
+      setTimeout(() => {
+        document.getElementById('Tab').classList.remove('active');
+      }, '500');
+      return;
+    }
     textArea.value = `${textArea.value}    `;
     textArea.focus();
     document.getElementById('Tab').classList.add('active');
@@ -109,6 +123,20 @@ document.addEventListener('keydown', (event) => {
     return;
   }
   if (event.code === 'Enter') {
+    const str = textArea.selectionStart;
+    const len = textArea.value.length;
+    const str1 = textArea.selectionEnd;
+    if (textArea.selectionStart !== len) {
+      textArea.value = `${textArea.value.substring(0, str)}                                                   ${textArea.value.substring(str1, len)}`;
+      textArea.selectionStart = str + 51;
+      textArea.selectionEnd = str + 51;
+      textArea.focus();
+      document.getElementById('Enter').classList.add('active');
+      setTimeout(() => {
+        document.getElementById('Enter').classList.remove('active');
+      }, '500');
+      return;
+    }
     textArea.value = `${textArea.value}\n`;
     textArea.focus();
     document.getElementById('Enter').classList.add('active');
@@ -118,6 +146,20 @@ document.addEventListener('keydown', (event) => {
     return;
   }
   if (event.code === 'Space') {
+    const str = textArea.selectionStart;
+    const len = textArea.value.length;
+    const str1 = textArea.selectionEnd;
+    if (textArea.selectionStart !== len) {
+      textArea.value = `${textArea.value.substring(0, str)} ${textArea.value.substring(str1, len)}`;
+      textArea.selectionStart = str + 1;
+      textArea.selectionEnd = str + 1;
+      textArea.focus();
+      document.getElementById('Space').classList.add('active');
+      setTimeout(() => {
+        document.getElementById('Space').classList.remove('active');
+      }, '500');
+      return;
+    }
     textArea.value = `${textArea.value} `;
     textArea.focus();
     document.getElementById('Space').classList.add('active');
@@ -128,7 +170,19 @@ document.addEventListener('keydown', (event) => {
   }
   if (event.code === 'Backspace') {
     const str = textArea.selectionStart - 1;
+    const str1 = textArea.selectionEnd;
     const len = textArea.value.length;
+    if (textArea.selectionStart !== textArea.selectionEnd) {
+      textArea.value = textArea.value.substring(0, str + 1) + textArea.value.substring(str1, len);
+      textArea.selectionStart = str + 1;
+      textArea.selectionEnd = str + 1;
+      textArea.focus();
+      document.getElementById('Backspace').classList.add('active');
+      setTimeout(() => {
+        document.getElementById('Backspace').classList.remove('active');
+      }, '500');
+      return;
+    }
     textArea.value = textArea.value.substring(0, str) + textArea.value.substring(str + 1, len);
     textArea.selectionStart = str;
     textArea.selectionEnd = str;
@@ -141,6 +195,18 @@ document.addEventListener('keydown', (event) => {
   if (event.code === 'Delete') {
     const str = textArea.selectionStart;
     const len = textArea.value.length;
+    const str1 = textArea.selectionEnd;
+    if (textArea.selectionStart !== textArea.selectionEnd) {
+      textArea.value = textArea.value.substring(0, str) + textArea.value.substring(str1, len);
+      textArea.selectionStart = str;
+      textArea.selectionEnd = str;
+      textArea.focus();
+      document.getElementById('Delete').classList.add('active');
+      setTimeout(() => {
+        document.getElementById('Delete').classList.remove('active');
+      }, '500');
+      return;
+    }
     textArea.value = textArea.value.substring(0, str) + textArea.value.substring(str + 1, len);
     textArea.selectionStart = str;
     textArea.selectionEnd = str;
@@ -247,6 +313,7 @@ document.addEventListener('keydown', (event) => {
     return;
   }
   const key = document.getElementById(`${event.code}`);
+  if (key === null) { return; }
   textArea.value += key.innerHTML;
   document.getElementById(`${event.code}`).classList.add('active');
   checkShift();
@@ -331,6 +398,15 @@ function keyboardClick(event) {
     return;
   }
   if (event.target === document.getElementById('Tab')) {
+    const str = textArea.selectionStart;
+    const len = textArea.value.length;
+    const str1 = textArea.selectionEnd;
+    if (textArea.selectionStart !== len) {
+      textArea.value = `${textArea.value.substring(0, str)}    ${textArea.value.substring(str1, len)}`;
+      textArea.selectionStart = str + 4;
+      textArea.selectionEnd = str + 4;
+      return;
+    }
     textArea.value = `${textArea.value}    `;
     textArea.focus();
     return;
@@ -340,7 +416,14 @@ function keyboardClick(event) {
   }
   if (event.target === document.getElementById('Backspace')) {
     const str = textArea.selectionStart - 1;
+    const str1 = textArea.selectionEnd;
     const len = textArea.value.length;
+    if (textArea.selectionStart !== textArea.selectionEnd) {
+      textArea.value = textArea.value.substring(0, str + 1) + textArea.value.substring(str1, len);
+      textArea.selectionStart = str + 1;
+      textArea.selectionEnd = str + 1;
+      return;
+    }
     textArea.value = textArea.value.substring(0, str) + textArea.value.substring(str + 1, len);
     textArea.selectionStart = str;
     textArea.selectionEnd = str;
@@ -349,17 +432,42 @@ function keyboardClick(event) {
   if (event.target === document.getElementById('Delete')) {
     const str = textArea.selectionStart;
     const len = textArea.value.length;
+    const str1 = textArea.selectionEnd;
+    if (textArea.selectionStart !== textArea.selectionEnd) {
+      textArea.value = textArea.value.substring(0, str) + textArea.value.substring(str1, len);
+      textArea.selectionStart = str;
+      textArea.selectionEnd = str;
+      return;
+    }
     textArea.value = textArea.value.substring(0, str) + textArea.value.substring(str + 1, len);
     textArea.selectionStart = str;
     textArea.selectionEnd = str;
     return;
   }
   if (event.target === document.getElementById('Enter')) {
+    const str = textArea.selectionStart;
+    const len = textArea.value.length;
+    const str1 = textArea.selectionEnd;
+    if (textArea.selectionStart !== len) {
+      textArea.value = `${textArea.value.substring(0, str)}                                                   ${textArea.value.substring(str1, len)}`;
+      textArea.selectionStart = str + 51;
+      textArea.selectionEnd = str + 51;
+      return;
+    }
     textArea.value = `${textArea.value}\n`;
     textArea.focus();
     return;
   }
   if (event.target === document.getElementById('Space')) {
+    const str = textArea.selectionStart;
+    const len = textArea.value.length;
+    const str1 = textArea.selectionEnd;
+    if (textArea.selectionStart !== len) {
+      textArea.value = `${textArea.value.substring(0, str)} ${textArea.value.substring(str1, len)}`;
+      textArea.selectionStart = str + 1;
+      textArea.selectionEnd = str + 1;
+      return;
+    }
     textArea.value = `${textArea.value} `;
     textArea.focus();
     return;

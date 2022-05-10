@@ -314,7 +314,13 @@ document.addEventListener('keydown', (event) => {
   }
   const key = document.getElementById(`${event.code}`);
   if (key === null) { return; }
-  textArea.value += key.innerHTML;
+  if (key.id === 'Digit7' && currentLanguage === 1) {
+    textArea.value += '&';
+  } else if (key.id === 'Comma' && currentLanguage === 1) {
+    textArea.value += '<';
+  } else if (key.id === 'Period' && currentLanguage === 1) {
+    textArea.value += '>';
+  } else { textArea.value += key.innerHTML; }
   document.getElementById(`${event.code}`).classList.add('active');
   checkShift();
   checkChangeLang();
@@ -473,7 +479,13 @@ function keyboardClick(event) {
     return;
   }
   if (event.target.className === 'btn') {
-    textArea.value += event.target.innerHTML;
+    if (event.target.id === 'Digit7' && currentLanguage === 1) {
+      textArea.value += '&';
+    } else if (event.target.id === 'Comma' && currentLanguage === 1) {
+      textArea.value += '<';
+    } else if (event.target.id === 'Period' && currentLanguage === 1) {
+      textArea.value += '>';
+    } else { textArea.value += event.target.innerHTML; }
     checkShift();
     checkChangeLang();
   }

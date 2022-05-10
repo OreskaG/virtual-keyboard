@@ -1,0 +1,95 @@
+.wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px;
+    display: flex;
+    flex-direction: column;
+}
+
+.title-text {
+    font-size: 30px;
+    text-align: center;
+}
+
+.text-area {
+    font-size: 20px;
+    margin: 20px auto;
+    resize: none;
+    outline: -webkit-focus-ring-color auto 1px;
+}
+
+.footer-text {
+    font-size: 20px;
+    margin: 10px auto;
+}
+
+.keyboard {
+    background-color: gray;
+    width: 800px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.btn {
+    width: 40px;
+    height: 40px;
+    background-color: black;
+    border-radius: 5px;
+    color: white;
+    font-size: 17px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight:bold;
+    cursor: pointer;
+    transition: 0.8s;
+    &:hover {
+        background-color: aquamarine;
+        color: black;
+        transition: 0.8s;
+    }
+}
+
+#Backspace {
+    width: 90px;
+}
+
+#CapsLock {
+    width: 90px;
+}
+
+#Enter {
+    width: 120px;
+}
+
+#ShiftLeft {
+    width: 120px;
+}
+
+#ShiftRight {
+    width: 87px;
+}
+
+#Space {
+    width: 400px;
+}
+
+#Tab {
+    width: 70px;
+}
+
+.row {
+    display: flex;
+    gap: 10px;
+    justify-content: space-between
+}
+
+.active {
+    background-color: aquamarine;
+    color: black;
+    transition: 0.8s;
+}
